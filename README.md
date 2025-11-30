@@ -1,245 +1,316 @@
 **Kasparro Agentic FB Analyst**
-A multi-agent system for autonomous Facebook Ads performance analysis and creative recommendations using GroqCloud
-<img width="762" height="833" alt="image" src="https://github.com/user-attachments/assets/cc94fe8a-0883-4613-a8f2-df4ed955680d" />
 
-   This the overall flowchart of the Project
+Kasparro Agentic FB Analyst is an AI-powered multi-agent system that analyzes Facebook Ads performance, identifies why ROAS or CTR dropped, validates insights with data, and generates new creative recommendations automatically.
+
+It uses an agentic workflow and supports both Groq (free) and OpenAI models.
+
+<img width="749" height="494" alt="image" src="https://github.com/user-attachments/assets/fea8d155-00a9-4c9b-8201-89b15c7e89d3" />
+
+                      work Flow
+
+
 **Quick Start**
-**1. Setup Environment**
-# Clone repository
-git clone <your-repo-url>
-cd kasparro-agentic-fb-analyst-yourname
-# Create virtual environment
-python -m venv venv
-venv\Scripts\activate
-# Install dependencies
+
+**1. Clone Repository**
+
+`git clone https://github.com/<your-username>/kasparro-agentic-fb-analyst-Yaseen-shaik.git`
+
+`cd kasparro-agentic-fb-analyst-Yaseen-shaik`
+
+
+**2. Create Virtual Environment**
+
+**Windows:**
+
+`python -m venv venv`
+
+`venv\Scripts\activate`
+
+**Mac/Linux:**
+
+`python3 -m venv venv`
+
+`source venv/bin/activate`
+
+**3. Install Dependencies**
 pip install -r requirements.txt
 
-**2. Configure API Key**
-**Create a .env file in the root directory:**
-OPENAI_API_KEY=your_openai_api_key_here
+**4. Configure API Keys**
 
-**3. Run Analysis**
-# Full analysis with default query
-python run.py "Why did ROAS drop last week?"
 
-# Custom query
-python run.py "Analyze campaign performance and suggest improvements"
+Create a file named .env in the root directory:
 
-# Use sample data
-python run.py "Diagnose ROAS changes" --sample
+`OPENAI_API_KEY=your_openai_api_key`
 
-# Specify custom data file
-python run.py "Analyze performance" --data-path data/my_ads.csv
+`GROQ_API_KEY=your_groq_api_key`
 
-The Structure Of Project
+**Run Analysis**
 
-kasparro-agentic-fb-analyst-yourname/
-├── README.md
-├── requirements.txt
-├── config/
-│   └── config.yaml
-├── src/
-│   ├── __init__.py
-│   ├── agents/
-│   │   ├── __init__.py
-│   │   ├── planner.py
-│   │   ├── data_agent.py
-│   │   ├── insight_agent.py
-│   │   ├── evaluator.py
-│   │   └── creative_generator.py
-│   ├── orchestrator/
-│   │   ├── __init__.py
-│   │   └── workflow.py
-│   └── utils/
-│       ├── __init__.py
-│       ├── logger.py
-│       └── data_loader.py
-├── prompts/
-│   ├── planner_prompt.md
-│   ├── data_agent_prompt.md
-│   ├── insight_prompt.md
-│   ├── evaluator_prompt.md
-│   └── creative_prompt.md
-├── data/
-│   ├── README.md
-│   └── sample_fb_ads.csv
-├── logs/
-│   └── .gitkeep
-├── reports/
-│   └── .gitkeep
-├── tests/
-│   └── test_evaluator.py
-├── run.py
+
+**Default analysis**
+
+`python run.py "Why did ROAS drop last week?"`
+
+**Custom query**
+
+p`ython run.py "Analyze campaign performance and suggest improvements"`
+
+**Use sample dataset**
+
+`python run.py "Diagnose ROAS changes" --sample`
+
+**Use custom CSV**
+
+`python run.py "Analyze performance" --data-path data/my_ads.csv`
+
+**Project Structure**
+
+<img width="870" height="897" alt="image" src="https://github.com/user-attachments/assets/6f442f9e-b712-4380-8c55-4c1bf11a7349" />
+
+
 
 
 **Output Files**
-After running the analysis, you'll find:
 
-reports/report.md - Human-readable analysis report
-reports/insights.json - Structured hypotheses with confidence scores
-reports/creatives.json - Creative recommendations for low-CTR campaigns
-logs/run_TIMESTAMP.json - Detailed execution logs
 
-**Configuration**
-Edit config/config.yaml to customize:
+**File	Description**
 
+File Name                                             Description
+
+
+**reports/report.md**                      Final human-readable analysis report
+
+**reports/insights.json**                  AI-generated hypotheses and validated insights
+
+**reports/creatives.json**                 Creative recommendations for low-performing ads
+
+**logs/run_TIMESTAMP.json**                Execution logs for debugging the table generation process
+
+
+
+**Configuration (config/config.yaml)**
+
+
+**Thresholds**
 
 **thresholds:**
-  low_ctr: 0.015          
-  low_roas: 3.0           
-  high_confidence: 0.75   
-  min_spend: 100.0
-  fatigue_days: 14
 
+           low_ctr: 0.015
+           
+           low_roas: 3.0
+           
+           high_confidence: 0.75
+           
+           min_spend: 100.0
+           
+           fatigue_days: 14
+  
+
+**Model (OpenAI Fallback)**
 
 **model:**
-  name: "gpt-3.5-turbo" 
-  temperature: 0.7
-  max_tokens: 2000
-  timeout: 60
+
+           name: "gpt-3.5-turbo"
+           
+           temperature: 0.7
+           
+           max_tokens: 2000
+           
+           timeout: 60
+
+**Groq Model Settings**
 
 **groq:**
-  model: "llama-3.3-70b-versatile"
-  temperature: 0.4
-  max_tokens: 2000
+
+              model: "llama-3.3-70b-versatile"
+              
+              temperature: 0.4
+              
+              max_tokens: 2000
+
+**Data Requirements**
 
 **data:**
-  sample_size: 1000   
+
+  sample_size: 1000
+  
   date_format: "%Y-%m-%d"
+  
   required_columns:
+  
     - campaign_name
+    
     - adset_name
+    
     - date
+    
     - spend
+    
     - impressions
+    
     - clicks
+    
     - ctr
+    
     - purchases
+    
     - revenue
+    
     - roas
+    
     - creative_type
+
     - creative_message
+    
     - audience_type
+
     - platform
+    
     - country
 
-**agents:**
-  max_retries: 2          
-  min_confidence: 0.5    
-  reflection_enabled: true 
+**Agent Settings**
 
+**agents:**
+
+     -max_retries: 2
+  
+     -min_confidence: 0.5
+  
+     -reflection_enabled: true
+  
+
+**Output Options**
 
 **output:**
-  log_format: "json"      
-  save_intermediate: true
-  verbose: true          
-random_seed: 42
 
+      log_format: "json"
+      
+     save_intermediate: true
+     
+     verbose: true
 
-**requirements.txt**
-
-openai>=1.97.1
-
-numpy==1.26.4
-pandas==2.2.0
-opencv-python==4.7.0.72
-openai>=1.97.1
-langchain-perplexity==0.1.2
-pyyaml==6.0.1
-python-dotenv==1.0.0
-loguru==0.7.2
-pytest==7.4.3
-pytest-cov==4.1.0
-black==23.12.1
-flake8==7.0.0
-mypy==1.8.0
-tqdm==4.66.1
-tenacity==8.2.3
+      random_seed: 42
 
 **Agent Descriptions**
+
 **Planner Agent**
-Receives user query and breaks it down into actionable subtasks. Determines what analysis is needed and coordinates the workflow.
+
+
+Creates a structured plan by breaking down the user query into actionable tasks.
+
 **Data Agent**
-Loads the Facebook Ads dataset, performs initial cleaning, and creates statistical summaries to feed to other agents.
+
+Loads, validates, cleans, and summarizes the Facebook Ads dataset.
+
 **Insight Agent**
-Generates hypotheses about performance patterns. Uses reasoning chains to explain potential causes of ROAS fluctuations, CTR changes, etc.
+
+Generates hypotheses describing why ROAS/CTR changed using reasoning chains.
+
 **Evaluator Agent**
-Validates hypotheses using quantitative analysis. Calculates confidence scores and provides evidence for or against each hypothesis.
+
+Validates hypotheses using statistical evidence and assigns confidence scores.
+
 **Creative Generator**
-Analyzes low-performing campaigns and generates new creative recommendations (headlines, messages, CTAs) based on successful patterns in the dataset.
-**Validation & Quality Assurance**
-The system includes multiple validation layers:
 
-Data Quality Checks: Validates CSV format, required columns, data types
-Hypothesis Confidence: Each insight includes a confidence score (0-1)
-Quantitative Evidence: All claims backed by statistical evidence
-Reflection Loop: Low-confidence results trigger re-analysis
+Generates fresh creative ideas (headlines, messages, CTAs) for underperforming campaigns.
 
-**Example confidence scoring:**
+**Quality Assurance**
 
-High (0.75-1.0): Strong statistical evidence
-Medium (0.5-0.74): Moderate evidence, some uncertainty
-Low (0.0-0.49): Weak evidence, requires more investigation
+         **The system performs:**
+         
+         Data validation
+         
+         Confidence scoring
+         
+         Statistical verification
+         
+         Reflection loop for improving low-confidence insights
+         
+         Multi-agent consistency checks
 
-E**xample Outputs**
-**Sample Query**
-**python run.py "Why did ROAS decrease in the last week?"**
-**Sample insights.json**
-json{
-  "query": "Why did ROAS decrease in the last week?",
-  "timestamp": "2024-11-29T10:30:00",
-  "hypotheses": [
-    {
-      "id": "H1",
-      "hypothesis": "Creative fatigue in top-spending campaigns led to declining CTR",
-      "confidence": 0.82,
-      "evidence": [
-        "Average CTR dropped from 0.021 to 0.015 (-28.6%)",
-        "Campaigns running >14 days show 35% lower CTR",
-        "Video creatives maintained performance vs Image (-12% CTR drop)"
-      ],
-      "recommendation": "Refresh creative assets for campaigns older than 2 weeks"
-    }
-  ]
-}
-**Sample creatives.json**
-json{
-  "timestamp": "2024-11-29T10:30:00",
-  "recommendations": [
-    {
-      "campaign_name": "Men_Comfort_Adset-1",
-      "current_ctr": 0.012,
-      "current_message": "Breathable comfort",
-      "new_creatives": [
-        {
-          "headline": "Stay Cool All Day Long",
-          "message": "Premium breathable fabric that moves with you",
-          "cta": "Shop Comfort Collection",
-          "rationale": "Combines top-performing 'cooling' theme with specificity"
-        }
-      ]
-    }
-  ]
-}
+**Confidence scale:**
 
+`High (0.75–1.0)`
+
+`Medium (0.50–0.74)`
+
+`Low (0.00–0.49)`
+
+**Example Output**
+
+         **insights.json**
+         {
+           "query": "Why did ROAS decrease in the last week?",
+           "timestamp": "2024-11-29T10:30:00",
+           "hypotheses": [
+             {
+               "id": "H1",
+               "hypothesis": "Creative fatigue in top-spending campaigns caused declining CTR",
+               "confidence": 0.82,
+               "evidence": [
+                 "CTR dropped from 0.021 to 0.015",
+                 "Campaigns running more than 14 days show 35% decline",
+                 "Video creatives stayed stable while Images dropped"
+               ],
+               "recommendation": "Refresh creatives for adsets older than 2 weeks"
+             }
+           ]
+         }
+
+
+         
+
+         creatives.json
+         {
+           "timestamp": "2024-11-29T10:30:00",
+           "recommendations": [
+             {
+               "campaign_name": "Men_Comfort_Adset-1",
+               "current_ctr": 0.012,
+               "current_message": "Breathable comfort",
+               "new_creatives": [
+                 {
+                   "headline": "Stay Cool All Day Long",
+                   "message": "Premium breathable fabric designed for daily comfort",
+                   "cta": "Shop Comfort Collection",
+                   "rationale": "Leverages top-performing cooling theme"
+                 }
+               ]
+             }
+           ]
+         }
 
 **Troubleshooting**
-Issue: OpenAI API key not found
 
-Solution: Ensure .env file exists with valid OPENAI_API_KEY
 
-Issue: File not found: data/fb_ads.csv
+Missing API Key
 
-Solution: Use --sample flag or provide --data-path
+Add keys inside .env.
 
-Issue: Low confidence results
+CSV Not Found
 
-Solution: System will automatically retry with refined prompts
+Use:
 
-Development
-Adding New Agents
+--sample
 
-Create new agent file in src/agents/
-Inherit from base agent pattern
-Add corresponding prompt in prompts/
-Update orchestrator workflow
+or:
+
+--data-path path/to/file.csv
+
+Low Confidence
+
+System retries automatically using reflection.
+
+      Development Guide
+      
+      Adding a New Agent
+      
+      Create a file in src/agents/
+      
+      Add its prompt in src/prompts/
+      
+      Link it inside src/orchestrator/workflow.py
+
+Run Tests
+
+`pytest --cov=src`
