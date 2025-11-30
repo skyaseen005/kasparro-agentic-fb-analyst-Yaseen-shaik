@@ -1,0 +1,112 @@
+{
+  "creative_recommendations": {
+    "underperforming_campaigns": [
+      {
+        "name": "Men Premium Modal",
+        "ctr": 1.04,
+        "message": "Ultra‑soft waistband, no marks — premium men briefs.",
+        "spend": 91907.92,
+        "roas": 6.36
+      },
+      {
+        "name": "Men Bold Colors Drop",
+        "ctr": 0.9,
+        "message": "Push comfort, not wires — everyday men inner vests.",
+        "spend": 91550.29,
+        "roas": 2.18
+      },
+      {
+        "name": "WOMEN Seamless Everyday",
+        "ctr": 0.87,
+        "message": "Seamless confidence for every day — new women panties.",
+        "spend": 72254.22,
+        "roas": 7.55
+      },
+      {
+        "name": "women Summer Invisible",
+        "ctr": 1.07,
+        "message": "Seamless confidence for every day — new women sports bras.",
+        "spend": 71949.48,
+        "roas": 7.19
+      },
+      {
+        "name": "WOMEN Cotton Classics",
+        "ctr": 1.02,
+        "message": "Wire‑free ease, cloud‑soft cups — women panties that fits right.",
+        "spend": 64718.65,
+        "roas": 9.36
+      }
+    ],
+    "successful_patterns": {
+      "best_creative_types": [
+        {
+          "creative_type": "Carousel",
+          "ctr": 0.0251972972972973,
+          "roas": 19.681351351351353,
+          "clicks": 209527.0
+        },
+        {
+          "creative_type": "Image",
+          "ctr": 0.025470408163265307,
+          "roas": 17.930816326530614,
+          "clicks": 636559.0
+        },
+        {
+          "creative_type": "UGC",
+          "ctr": 0.025645833333333336,
+          "roas": 15.814583333333333,
+          "clicks": 287290.0
+        },
+        {
+          "creative_type": "Video",
+          "ctr": 0.025192405063291137,
+          "roas": 23.954050632911393,
+          "clicks": 561738.0
+        }
+      ],
+      "top_themes": [
+        "women",
+        "that",
+        "with",
+        "briefs.",
+        "athletic",
+        "breathable",
+        "inner",
+        "wire–free",
+        "seamless",
+        "briefs"
+      ],
+      "avg_high_ctr": 0.025380152671755724,
+      "avg_high_roas": 19.60648854961832
+    },
+    "key_insights": [
+      {
+        "confidence": 0.6,
+        "evidence": "The recent ROAS (7.91) is lower than the average ROAS (9.65), and the CTR change is positive (3.7%) but still lower than the average CTR (1.31%). This suggests that the ad creatives may not be as effective as they were on average.",
+        "category": "unknown"
+      },
+      {
+        "confidence": 0.7,
+        "evidence": "There are a significant number of underperforming campaigns (2926 with low CTR and 1632 with low ROAS). This suggests that the targeting may not be optimal, leading to a drop in ROAS.",
+        "category": "unknown"
+      },
+      {
+        "confidence": 0.55,
+        "evidence": "The median ROAS (4.35) is significantly lower than the average ROAS (9.65), indicating a potential skew in the data. This, combined with the drop in ROAS, may suggest a shift in user behavior or market trends.",
+        "category": "unknown"
+      },
+      {
+        "confidence": 0.45,
+        "evidence": "The recent CTR (1.28%) is lower than the average CTR (1.31%), and the ROAS change is negative (-0.5%). This could be a sign of ad fatigue or over-saturation, where users are becoming less responsive to the ads.",
+        "category": "unknown"
+      },
+      {
+        "confidence": 0.55,
+        "evidence": "The total spend is significant ($2,105,579.90), but the ROAS has dropped. This could indicate that the budget is not being allocated efficiently across campaigns or ad sets.",
+        "category": "unknown"
+      }
+    ]
+  },
+  "recommendations": [],
+  "timestamp": "2025-11-30T17:25:52.600720"
+}

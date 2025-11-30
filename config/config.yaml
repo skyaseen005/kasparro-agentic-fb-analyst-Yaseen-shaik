@@ -1,0 +1,58 @@
+# Kasparro Agentic FB Analyst Configuration
+
+# Performance thresholds
+thresholds:
+  low_ctr: 0.015          # CTR below this is considered low
+  low_roas: 3.0           # ROAS below this needs improvement
+  high_confidence: 0.75   # Confidence threshold for high-quality insights
+  min_spend: 100.0        # Minimum spend to consider campaign
+  fatigue_days: 14        # Days before creative fatigue likely
+
+# OpenAI Model Configuration (only used if Groq not available)
+model:
+  name: "gpt-3.5-turbo"     # Valid OpenAI model
+  temperature: 0.7
+  max_tokens: 2000
+  timeout: 60
+
+groq:
+  model: "llama-3.3-70b-versatile"
+  temperature: 0.4
+  max_tokens: 2000
+
+
+# Data processing
+data:
+  sample_size: 1000       # Rows to sample for testing
+  date_format: "%Y-%m-%d" # Date format in CSV
+  required_columns:
+    - campaign_name
+    - adset_name
+    - date
+    - spend
+    - impressions
+    - clicks
+    - ctr
+    - purchases
+    - revenue
+    - roas
+    - creative_type
+    - creative_message
+    - audience_type
+    - platform
+    - country
+
+# Agent configuration
+agents:
+  max_retries: 2          # Retries for low-confidence results
+  min_confidence: 0.5     # Minimum acceptable confidence
+  reflection_enabled: true # Enable self-reflection loop
+
+# Output configuration
+output:
+  log_format: "json"      # json or text
+  save_intermediate: true # Save intermediate agent outputs
+  verbose: true           # Detailed logging
+
+# Random seed for reproducibility
+random_seed: 42

@@ -1,0 +1,30 @@
+{
+  "hypotheses": [
+    {
+      "confidence": 0.6,
+      "evidence": "The recent ROAS (7.91) is lower than the average ROAS (9.65), and the CTR change is positive (3.7%) but still lower than the average CTR (1.31%). This suggests that the ad creatives may not be as effective as they were on average.",
+      "category": "unknown"
+    },
+    {
+      "confidence": 0.7,
+      "evidence": "There are a significant number of underperforming campaigns (2926 with low CTR and 1632 with low ROAS). This suggests that the targeting may not be optimal, leading to a drop in ROAS.",
+      "category": "unknown"
+    },
+    {
+      "confidence": 0.55,
+      "evidence": "The median ROAS (4.35) is significantly lower than the average ROAS (9.65), indicating a potential skew in the data. This, combined with the drop in ROAS, may suggest a shift in user behavior or market trends.",
+      "category": "unknown"
+    },
+    {
+      "confidence": 0.45,
+      "evidence": "The recent CTR (1.28%) is lower than the average CTR (1.31%), and the ROAS change is negative (-0.5%). This could be a sign of ad fatigue or over-saturation, where users are becoming less responsive to the ads.",
+      "category": "unknown"
+    },
+    {
+      "confidence": 0.55,
+      "evidence": "The total spend is significant ($2,105,579.90), but the ROAS has dropped. This could indicate that the budget is not being allocated efficiently across campaigns or ad sets.",
+      "category": "unknown"
+    }
+  ],
+  "overall_confidence": 0.5700000000000001
+}
