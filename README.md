@@ -1,40 +1,7 @@
 **Kasparro Agentic FB Analyst**
 A multi-agent system for autonomous Facebook Ads performance analysis and creative recommendations using GroqCloud
-┌─────────────┐
-│   User      │
-│   Query     │
-└──────┬──────┘
-       │
-       v
-┌─────────────────┐
-│ Planner Agent   │  Decomposes query into subtasks
-└────────┬────────┘
-         │
-         v
-┌─────────────────┐
-│  Data Agent     │  Loads & summarizes dataset
-└────────┬────────┘
-         │
-         v
-┌─────────────────┐
-│ Insight Agent   │  Generates hypotheses about performance
-└────────┬────────┘
-         │
-         v
-┌─────────────────┐
-│ Evaluator Agent │  Validates hypotheses quantitatively
-└────────┬────────┘
-         │
-         v
-┌─────────────────┐
-│ Creative Gen    │  Produces new creative recommendations
-└────────┬────────┘
-         │
-         v
-   ┌──────────┐
-   │  Output  │
-   │  Report  │
-   └──────────┘
+<img width="762" height="833" alt="image" src="https://github.com/user-attachments/assets/cc94fe8a-0883-4613-a8f2-df4ed955680d" />
+
    This the overall flowchart of the Project
 **Quick Start**
 **1. Setup Environment**
